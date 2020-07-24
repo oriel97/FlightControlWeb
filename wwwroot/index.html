@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEB</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/IndexStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/MyFlightsStyle.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+		  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		  crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+			integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+			crossorigin=""></script>
+	<script src="jquery-3.5.1.js"></script>
+	<!--<script>
+		$(function () {
+			$("#MyFlights").load("MyFlights.html");
+		});
+	</script> -->
+
+</head>
+<body>
+	<div class="wrapper">
+		<!--MAP-->
+		<div id="map">
+			<script src="js/InitMap.js"></script>
+		</div>
+		<script>
+			//var map = L.map('map',{minZoom:3,}).setView([33,31],2);
+			var onMarkerClick = function (e) {
+				console.log(this);
+				alert("You clicked on marker with customId: " + this.options.myCustomId);
+			}
+			L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=dwAzStO5BTv3oNPggfCv', {
+				attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+			}).addTo(map);
+			setTimeout(function () { map.invalidateSize() }, 10);
+		</script>
+
+		<!--TITLE-->
+		<div class="Title">
+			Live Flights Control
+			<br>
+			<img src="a.png" alt="Italian Trulli" height="70" width="70">
+
+		</div>
+
+		<!--INTERNAL FLIGHTS-->
+		<div class="MyFlights">
+			<div id="myDIV" class="header">
+				<h2 style="margin:5px">Internal Flights</h2>
+				<input type="text" id="myInput" placeholder="Title...">
+				<span onclick="newElement()" class="addBtn">Add</span>
+			</div>
+			<ul id="nodeName"> </ul>
+
+			<p id="demo"></p>
+			<!--<script src="js/MyFlights.js"></script> -->
+			<script src="js/FlightsList.js"></script>
+			<script src="js/MyFlights - Copy.js"></script>
+
+		</div>
+
+
+		<!--EXTERNAL FLIGHTS-->
+		<div class="ExternalFlights">
+			External Flights
+		</div>
+
+		<!--FLIGHT DETAILS-->
+		<div class="FlightDetails">
+			Flight Details
+
+			<div>
+				<p id="FlightDet"></p>
+			</div>
+			<script>
+				function FlightDetailsAsButton(data) {
+					var x = document.getElementById(data[i].flight_id);
+					if (x.style.display === "none") {
+						x.style.display = "block";
+					} else {
+						x.style.display = "none";
+					}
+				}
+			</script>
+
+
+		</div>
+
+
+	</div>
+	
+
+
+</body>
+</html>
+
+
+

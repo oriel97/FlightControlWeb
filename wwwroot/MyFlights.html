@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/MyFlightsStyle.css">
+   
+</head>
+<body>
+    <div id="myDIV" class="header">
+        <h2 style="margin:5px">My To Do List</h2>
+        <input type="text" id="myInput" placeholder="Title...">
+        <span onclick="newElement()" class="addBtn">Add</span>
+
+    </div>
+    <!--<script src="js/FlightsList.js"></script>
+      <table id="internal_list">
+          <tr>
+              <th>Flight Id</th>
+              <th>Company</th>
+          </tr>
+      </table>-->
+    <!--<ul id="myUL">
+           <li>Hit the gym</li>
+           <li>Pay bills</li>
+           <li>Meet George</li>
+           <li>Buy eggs</li>
+           <li>Read a book </li>
+           <li>Organize office</li>
+       </ul>  -->
+    <ul id="myUL">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+    <script src="ListBinding.js"></script>
+    <script type="text/javascript">
+        const myUL = document.getElementById("myUL");
+        const listBinding = new ListBinding(myUL);
+    </script>
+
+
+    <script src="js/MyFlights.js"></script>
+
+
+</body>
+</html>
